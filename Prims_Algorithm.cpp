@@ -7,7 +7,6 @@ struct Prims {
   }
   void runPrims(int node) {
     priority_queue<PII, vector<PII>, greater<PII> > q;
-    int y;
     long long minimumCost = 0;
     PII p;
     q.push(make_pair(0, node));
@@ -27,9 +26,8 @@ struct Prims {
 
       for (auto &child : adj[par])
       {
-        y = adj[x][i].second;
-        if (vis[y] == false)
-          q.push(adj[x][i]);
+        if (vis[child] == false)
+          q.push(child);
       }
     }
     return minimumCost;
